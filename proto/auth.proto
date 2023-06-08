@@ -8,6 +8,7 @@ service AuthService {
   rpc RefreshToken (RefreshTokenRequest) returns (CommonResponse) {}
   rpc RecoveryPassword (RecoveryPasswordRequest) returns (RecoveryPasswordResponse) {}
   rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+  rpc Validate(ValidateRequest) returns (ValidateRespnose) {}
 }
 
 message CommonResponse {
@@ -17,11 +18,20 @@ message CommonResponse {
   string message = 4;
 }
 
+// Validate
+message ValidateRequest {
+  string access_token = 1;
+}
+
+message ValidateRespnose {
+  bool success = 1;
+}
+
 // Register
 message RegisterRequest {
   string usuername = 1;
   string email = 2;
-  string fullname = 3;
+  string full_name = 3;
   string password = 4;
 }
 
@@ -48,7 +58,7 @@ message RecoveryPasswordResponse {
 
 // Logout
 message LogoutRequest {
-  int32 id = 1;
+  string access_token = 1;
 }
 
 message LogoutResponse {
