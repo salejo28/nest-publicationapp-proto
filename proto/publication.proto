@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package publication;
+
+import "google/protobuf/timestamp.proto";
+
+service PublicationService {
+  rpc CreatePublication(CreatePublicationRequest) returns (CommonResponse) {}
+  rpc UpdatePublicationPublication(UpdatePublicationRequest) returns (CommonResponse) {}
+  rpc DeletePublication(DeletePublicationRequest) returns (DeletePublicationResponse) {} 
+  rpc GetPublications(GetPublicationsRequest) returns (PaginateResponse) {}
+  rpc GetPublicationsByUser(GetPublicationsByUserRequest) returns (PaginateResponse) {}
+}
+
+message Publication {
+  int32 id = 1;
+  string text = 2;
+  string resource_url = 3;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message PaginateResponse {
+  int32 page = 1;
+  int32 limit = 2;
+  int32 total_publications = 3;
+  int32 total_pages = 4;
+  repeated Publication publications = 5;
+}
+
+message CommonResponse {
+  bool success = 1;
+  string message = 2;
+  Publication publication = 3;
+}
+
+// CreatePublication 
+message CreatePublicationRequest {
+  string text = 1;
+  string resource = 2; // Comming in base64
+}
+
+// UpdatePublicationPublication
+message UpdatePublicationRequest {
+  int32 id = 1;
+  string text = 2;
+  string resource = 3; // Comming in base64
+}
+
+// DeletePublicationRequest
+message DeletePublicationRequest {
+  int32 id = 1;
+}
+
+message DeletePublicationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// GetPublicationsRequest
+message GetPublicationsRequest {}
+
+// GetPublicationsByUser
+message GetPublicationsByUserRequest {
+  int32 user_id = 1;
+}

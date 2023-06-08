@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package user;
+
+import "google/protobuf/timestamp.proto";
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (CommonResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (CommonResponse) {}
+  rpc GetUser(GetUserRequest) returns (User) {}
+}
+
+message User {
+  int32 id = 1;
+  string usuername = 2;
+  string email = 3;
+  string fullname = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message CommonResponse {
+  bool success = 1;
+  string message = 2;
+  User user = 3;
+}
+
+
+// CreateUser
+message CreateUserRequest {
+  string usuername = 1;
+  string email = 2;
+  string fullname = 3;
+  string password = 4;
+}
+
+// UpdateUser
+message UpdateUserRequest {
+  int32 id = 1;
+  string usuername = 2;
+  string email = 3;
+  string fullname = 4;
+}
+
+// GetUser
+message GetUserRequest {
+  int32 id = 1;
+}

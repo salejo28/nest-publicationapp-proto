@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+  rpc Register (RegisterRequest) returns (CommonResponse) {}
+  rpc Login (LoginRequest) returns (CommonResponse) {}
+  rpc RefreshToken (RefreshTokenRequest) returns (CommonResponse) {}
+  rpc RecoveryPassword (RecoveryPasswordRequest) returns (RecoveryPasswordResponse) {}
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+}
+
+message CommonResponse {
+  bool success = 1;
+  string access_token = 2;
+  string refresh_token = 3;
+  string message = 4;
+}
+
+// Register
+message RegisterRequest {
+  string usuername = 1;
+  string email = 2;
+  string fullname = 3;
+  string password = 4;
+}
+
+// Login
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+// RefreshToken
+message RefreshTokenRequest {
+  string refresh_token = 1;
+}
+
+// Recovery Password 
+message RecoveryPasswordRequest {
+  string password = 1;
+}
+
+message RecoveryPasswordResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Logout
+message LogoutRequest {
+  int32 id = 1;
+}
+
+message LogoutResponse {
+  bool success = 1;
+}
