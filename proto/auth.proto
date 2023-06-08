@@ -25,6 +25,7 @@ message ValidateRequest {
 
 message ValidateRespnose {
   bool success = 1;
+  int32 user_id = 2;
 }
 
 // Register
@@ -49,6 +50,7 @@ message RefreshTokenRequest {
 // Recovery Password 
 message RecoveryPasswordRequest {
   string password = 1;
+  string recovery_password_token = 2;
 }
 
 message RecoveryPasswordResponse {

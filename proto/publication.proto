@@ -38,6 +38,7 @@ message CommonResponse {
 message CreatePublicationRequest {
   string text = 1;
   string resource = 2; // Comming in base64
+  int32 user_id = 3;
 }
 
 // UpdatePublicationPublication
