@@ -27,7 +27,7 @@ message CommonResponse {
 // UpdateUser
 message UpdateUserRequest {
   int32 id = 1;
-  string usuername = 2;
+  string username = 2;
   string email = 3;
   string full_name = 4;
 }
