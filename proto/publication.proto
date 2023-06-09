@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 service PublicationService {
   rpc CreatePublication(CreatePublicationRequest) returns (CommonResponse) {}
-  rpc UpdatePublicationPublication(UpdatePublicationRequest) returns (CommonResponse) {}
+  rpc UpdatePublication(UpdatePublicationRequest) returns (CommonResponse) {}
   rpc DeletePublication(DeletePublicationRequest) returns (DeletePublicationResponse) {} 
   rpc GetPublications(GetPublicationsRequest) returns (PaginateResponse) {}
   rpc GetPublicationsByUser(GetPublicationsByUserRequest) returns (PaginateResponse) {}
