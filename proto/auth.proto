@@ -30,7 +30,7 @@ message ValidateRespnose {
 
 // Register
 message RegisterRequest {
-  string usuername = 1;
+  string username = 1;
   string email = 2;
   string full_name = 3;
   string password = 4;
