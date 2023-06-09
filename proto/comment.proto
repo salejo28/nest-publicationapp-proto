@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package comment;
 
-import "google/protobuf/timestamp.proto";
-
 service CommentService {
   rpc NewComment(NewCommentRequest) returns (CommonResponse) {}
   rpc UpdateComment(UpdateCommentRequest) returns (CommonResponse) {}
@@ -18,8 +16,8 @@ message Comment {
   string resource_url = 3;
   int32 publication_id = 4;
   int32 parent_comment_id = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
+  string created_at = 6;
+  string updated_at = 7;
 }
 
 message PaginateResponse {

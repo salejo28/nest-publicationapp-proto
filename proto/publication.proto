@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package publication;
 
-import "google/protobuf/timestamp.proto";
-
 service PublicationService {
   rpc CreatePublication(CreatePublicationRequest) returns (CommonResponse) {}
   rpc UpdatePublication(UpdatePublicationRequest) returns (CommonResponse) {}
@@ -16,8 +14,8 @@ message Publication {
   int32 id = 1;
   string text = 2;
   string resource_url = 3;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  string created_at = 5;
+  string updated_at = 6;
 }
 
 message PaginateResponse {
