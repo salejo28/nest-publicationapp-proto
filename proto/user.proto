@@ -5,6 +5,7 @@ package user;
 service UserService {
   rpc UpdateUser(UpdateUserRequest) returns (CommonResponse) {}
   rpc GetUser(GetUserRequest) returns (User) {}
+  rpc GetUserById(GetUserByIdRequest) returns (User) {}
 }
 
 message User {
@@ -12,8 +13,9 @@ message User {
   string username = 2;
   string email = 3;
   string full_name = 4;
-  string created_at = 5;
-  string updated_at = 6;
+  string image_url = 5;
+  string created_at = 6;
+  string updated_at = 7;
 }
 
 message CommonResponse {
@@ -25,12 +27,18 @@ message CommonResponse {
 // UpdateUser
 message UpdateUserRequest {
   int32 id = 1;
-  string username = 2;
-  string email = 3;
-  string full_name = 4;
+  optional string username = 2;
+  optional string email = 3;
+  optional string full_name = 4;
+  optional string file = 5;
 }
 
 // GetUser
 message GetUserRequest {
+  int32 id = 1;
+}
+
+// GetUserById
+message GetUserByIdRequest {
   int32 id = 1;
 }
