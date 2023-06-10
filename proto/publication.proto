@@ -68,9 +68,14 @@ message DeletePublicationResponse {
 }
 
 // GetPublicationsRequest
-message GetPublicationsRequest {}
+message GetPublicationsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
 
 // GetPublicationsByUser
 message GetPublicationsByUserRequest {
   int32 user_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
 }
