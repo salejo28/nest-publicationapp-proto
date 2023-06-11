@@ -47,8 +47,8 @@ message CommonResponse {
 
 // NewComment
 message NewCommentRequest {
-  string text = 2;
-  string resource = 3;
+  optional string text = 2;
+  optional string resource = 3;
   int32 user_id = 4;
   int32 publication_id = 5;
   int32 parent_comment = 6;
