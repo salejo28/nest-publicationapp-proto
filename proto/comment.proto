@@ -51,7 +51,7 @@ message NewCommentRequest {
   optional string resource = 3;
   int32 user_id = 4;
   int32 publication_id = 5;
-  int32 parent_comment = 6;
+  optional int32 parent_comment = 6;
 }
 
 // UpdateComment
