@@ -8,6 +8,7 @@ service PublicationService {
   rpc DeletePublication(DeletePublicationRequest) returns (DeletePublicationResponse) {} 
   rpc GetPublications(GetPublicationsRequest) returns (PaginateResponse) {}
   rpc GetPublicationsByUser(GetPublicationsByUserRequest) returns (PaginateResponse) {}
+  rpc GetPublicationById(GetPublicationByIdRequest) returns (Publication) {}
 }
 
 message User {
@@ -78,4 +79,9 @@ message GetPublicationsByUserRequest {
   int32 user_id = 1;
   int32 page = 2;
   int32 limit = 3;
+}
+
+// GetPublicationByIdRequest
+message GetPublicationByIdRequest {
+  int32 id = 1;
 }
