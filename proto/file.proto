@@ -4,7 +4,7 @@ package file;
 
 service FileService {
   rpc uploadFile(UploadFileRequest) returns (UploadFileResponse) {}
-  rpc deleteFile(DeleteFileRequest) returns (DeleteFileRespnose) {}
+  rpc deleteFile(DeleteFileRequest) returns (DeleteFileResponse) {}
 }
 
 message UploadFileRequest {
@@ -19,6 +19,6 @@ message DeleteFileRequest {
   string file = 1;
 }
 
-message DeleteFileRespnose {
+message DeleteFileResponse {
   bool success = 1;
 }
